@@ -1,28 +1,59 @@
+@import url("https://fonts.googleapis.com/css?family=Pontano+Sans");
+
 .App {
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 150vh;
-  background-color: #074b4c;
+  background-color: #393e41;
 }
 
 #header {
   font-size: 5vh;
-  font-family: La Belle Aurore;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin-bottom: 10vh;
+  color: #e94f37;
+}
+#sortByHeader {
+  color: #e94f37;
+  font-size: 1.3em;
 }
 
-#hotel {
-  margin-bottom: 5vh;
+#filterHeader {
+  color: #e94f37;
+  margin-bottom: 1vh;
+  font-size: 1.3em;
 }
 #filterOptions {
   display: flex;
   flex-direction: column;
+  color: #f6f7eb;
+}
+#filterSection {
+  color: #e94f37;
+  margin-bottom: 1vh;
+  font-size: 1.3em;
 }
 .hotelsList {
+  color: #f6f7eb;
   display: inline-grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
   font-family: "Pontano sana", sans-serif;
   font-size: 1.3em;
+  grid-gap: 2em;
+}
+#hotel {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: black;
+  margin: 0.6vh;
+  padding: 0.8vh;
+  font-size: 2vh;
+  background-color: #bcbbbd;
+  border-radius: 14px;
+  box-shadow: 0.2em 0.2em 3px 1px #26191b;
+  width: 20vw;
+  color: black;
 }

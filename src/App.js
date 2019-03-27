@@ -19,13 +19,13 @@ class App extends Component {
     return (
       <div className="App">
         <header id="header">Hotels-ReactApp</header>
-        <header>Sort by star rating!</header>
+        <header id="sortByHeader">Sort by star rating!</header>
         <select onChange={this.handleStarsChange}>
           <option value="asc">Asc</option>
           <option value="desc">Desc</option>
         </select>
         <br />
-        <header>Add filters!</header>
+        <header id="filterHeader">Add filters!</header>
         <form id="filterOptions">
           <div>
             Car Park
@@ -41,8 +41,11 @@ class App extends Component {
           </div>
         </form>
         <br />
-        Filtering:{" "}
-        {this.state.facilities.join(", ") || "showing all facilities!"}
+        <section id="filterSection">
+          Filtering:{" "}
+          {this.state.facilities.join(", ") || "showing all facilities!"}
+        </section>
+
         <ul className="hotelsList">
           {this.sortHotelInStarsOrder()
             .filter(hotel =>
