@@ -14,6 +14,20 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">Hotels-react-app</header>
+        <form id="filterOptions">
+          <div>
+            Car Park
+            <Checkbox onClick={this.handleSearch} id="car park" />
+          </div>
+          <div>
+            Gym
+            <Checkbox onClick={this.handleSearch} id="gym" />
+          </div>
+          <div>
+            Pool
+            <Checkbox onClick={this.handleSearch} id="pool" />
+          </div>
+        </form>
         <ul className="hotelsList">
           {this.state.hotels.map(hotel => (
             <div id="hotel" key={hotel.id}>
