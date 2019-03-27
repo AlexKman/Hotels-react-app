@@ -13,7 +13,15 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">Hotels-react-app</header>
-        <ul />
+        <ul className="hotelsList">
+          {this.state.hotels.map(hotel => (
+            <div id="hotel" key={hotel.id}>
+              <section>{hotel.name}</section>
+              <section>Star rating = {hotel.starRating}</section>
+              <section>Facilities =</section>
+            </div>
+          ))}
+        </ul>
       </div>
     );
   }

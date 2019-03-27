@@ -1,16 +1,22 @@
 {
-  "name": "hotels-react-app",
+  "name": "Hotels-react-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "chai": "^4.2.0",
+    "prop-types": "^15.7.2",
     "react": "^16.8.5",
+    "react-bootstrap": "^1.0.0-beta.6",
     "react-dom": "^16.8.5",
-    "react-scripts": "2.1.8"
+    "react-perfect-scrollbar": "^1.4.4",
+    "react-scripts": "2.1.8",
+    "react-scrollbar": "^0.5.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
+    "test:watch": "jest --watch",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -21,5 +27,17 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.4.0",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/preset-env": "^7.4.2",
+    "@babel/preset-react": "^7.0.0",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.11.2",
+    "enzyme-to-json": "^3.3.5",
+    "jest": "^23.6.0",
+    "react-addons-test-utils": "^15.6.2",
+    "react-test-renderer": "^16.8.5"
+  }
 }
