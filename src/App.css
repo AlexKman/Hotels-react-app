@@ -12,3 +12,7 @@
   font-family: "Pontano sana", sans-serif;
   font-size: 1.3em;
 }
+#filteroptions {
+  display: flex;
+  flex-direction: column;
+}

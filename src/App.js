@@ -40,6 +40,16 @@ class App extends Component {
       </div>
     );
   }
+  handleSearch = e => {
+    if (!this.state.facilities.includes(e.target.id)) {
+      this.setState({ facilities: [...this.state.facilities, e.target.id] });
+    } else {
+      const facilitiesCopy = [...this.state.facilities];
+      const index = facilitiesCopy.indexOf(e.target.id);
+      facilitiesCopy.splice(index, 1);
+      this.setState({ facilities: facilitiesCopy });
+    }
+  };
 }
 
 export default App;
