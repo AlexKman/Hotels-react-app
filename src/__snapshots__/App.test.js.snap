@@ -1,0 +1,183 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`checkbox Component renders correctly 1`] = `
+<App>
+  <div
+    className="App"
+  >
+    <header
+      id="header"
+    >
+      Hotels-ReactApp
+    </header>
+    <header>
+      Sort by star rating!
+    </header>
+    <select
+      onChange={[Function]}
+    >
+      <option
+        value="asc"
+      >
+        Asc
+      </option>
+      <option
+        value="desc"
+      >
+        Desc
+      </option>
+    </select>
+    <br />
+    <header>
+      Add filters!
+    </header>
+    <form
+      id="filteroptions"
+    >
+      <div>
+        Car Park
+        <Checkbox
+          id="car park"
+          onClick={[Function]}
+        >
+          <input
+            id="car park"
+            onClick={[Function]}
+            type="checkbox"
+          />
+        </Checkbox>
+      </div>
+      <div>
+        Gym
+        <Checkbox
+          id="gym"
+          onClick={[Function]}
+        >
+          <input
+            id="gym"
+            onClick={[Function]}
+            type="checkbox"
+          />
+        </Checkbox>
+      </div>
+      <div>
+        Pool
+        <Checkbox
+          id="pool"
+          onClick={[Function]}
+        >
+          <input
+            id="pool"
+            onClick={[Function]}
+            type="checkbox"
+          />
+        </Checkbox>
+      </div>
+    </form>
+    <br />
+    Filtering:
+     
+    showing all facilities!
+    <ul
+      className="hotelslist"
+    >
+      <div
+        id="hotel"
+        key="5"
+      >
+        <section>
+          Tranquil Sanctuary
+        </section>
+        <section>
+          Star rating = 
+          1
+        </section>
+        <section>
+          Facilities = 
+          bar, gym
+        </section>
+      </div>
+      <div
+        id="hotel"
+        key="2"
+      >
+        <section>
+          Landmark
+        </section>
+        <section>
+          Star rating = 
+          3
+        </section>
+        <section>
+          Facilities = 
+          car park, gym
+        </section>
+      </div>
+      <div
+        id="hotel"
+        key="3"
+      >
+        <section>
+          Billay
+        </section>
+        <section>
+          Star rating = 
+          3
+        </section>
+        <section>
+          Facilities = 
+          pool
+        </section>
+      </div>
+      <div
+        id="hotel"
+        key="1"
+      >
+        <section>
+          Hilton
+        </section>
+        <section>
+          Star rating = 
+          5
+        </section>
+        <section>
+          Facilities = 
+          car park, pool
+        </section>
+      </div>
+      <div
+        id="hotel"
+        key="6"
+      >
+        <section>
+          Vacation hotel
+        </section>
+        <section>
+          Star rating = 
+          7
+        </section>
+        <section>
+          Facilities = 
+          snooker
+        </section>
+      </div>
+      <div
+        id="hotel"
+        key="4"
+      >
+        <section>
+          The Standard
+        </section>
+        <section>
+          Star rating = 
+          10
+        </section>
+        <section>
+          Facilities = 
+          pool, car park, snooker
+        </section>
+      </div>
+    </ul>
+  </div>
+</App>
+`;

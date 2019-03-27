@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`checkbox renders correctly 1`] = `
+<Checkbox
+  id="123"
+  onClick={[MockFunction]}
+>
+  <input
+    id="123"
+    onClick={[MockFunction]}
+    type="checkbox"
+  />
+</Checkbox>
+`;

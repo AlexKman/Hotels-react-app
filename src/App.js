@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import hotels from "./data/hotels.json";
 import "./App.css";
-import Checkbox from "./components/Checkbox.jsx";
+import Checkbox from "./components/checkbox.jsx";
 
 class App extends Component {
   state = {
@@ -15,6 +15,7 @@ class App extends Component {
   }
 
   render() {
+    const { hotels } = this.state;
     return (
       <div className="App">
         <header id="header">Hotels-ReactApp</header>
@@ -43,7 +44,7 @@ class App extends Component {
         Filtering:{" "}
         {this.state.facilities.join(", ") || "showing all facilities!"}
         <ul className="hotelslist">
-          {this.sortHotelsInStarOrder()
+          {this.sortHotelInStarsOrder()
             .filter(hotel =>
               this.checkForFacilities(hotel.facilities, this.state.facilities)
             )
@@ -51,7 +52,7 @@ class App extends Component {
               <div id="hotel" key={hotel.id}>
                 <section>{hotel.name}</section>
                 <section>Star rating = {hotel.starRating}</section>
-                <section>Facilities </section>
+                <section>Facilities = {this.getHotelFacilities(hotel)}</section>
               </div>
             ))}
         </ul>
@@ -67,7 +68,7 @@ class App extends Component {
   getHotelFacilities = hotel => {
     return hotel.facilities.join(", ") || "no facilities";
   };
-  sortHotelsInStarOrder = () => {
+  sortHotelInStarsOrder = () => {
     const hotels = this.state.hotels;
     hotels.sort((hotel1, hotel2) => {
       return this.state.starsOrder === "asc"
