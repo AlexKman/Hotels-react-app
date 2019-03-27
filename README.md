@@ -9,3 +9,11 @@ This command allows you to run the app in development mode on http://localhost:3
 ### `npm test`
 
 This command allows you to run all the tests written inside the app between 2 test suites
+
+## Built with
+
+[Create React App](https://github.com/facebook/create-react-app) - To bootstrap the app and streamline the creation process.
+
+## Authors
+
+- AlexKMan - [Github](https://github.com/AlexKMan)
