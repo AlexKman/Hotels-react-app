@@ -25,3 +25,41 @@ describe("checkbox", () => {
     });
   });
 });
+describe("Behaviour", () => {
+  describe("componentDidMount", () => {
+    it("loads hotels to state on mounting", () => {
+      const instance = component.instance();
+      instance.componentDidMount();
+      expect(instance.state.hotels).toEqual(hotels);
+    });
+  });
+});
+describe("handleSearch", () => {
+  let instance;
+  let facilities;
+  beforeEach(() => {
+    instance = component.instance();
+    facilities = ["car", "pool", "gym"];
+    instance.setState({ facilities });
+  });
+  it("adds to facilities array if id is not found", () => {
+    const event = {
+      target: {
+        id: "big"
+      }
+    };
+    instance.handleSearch(event);
+    expect(instance.state.facilities.length).toEqual(4);
+    expect(instance.state.facilities.includes("big")).toEqual(true);
+  });
+  it("removes from facilities array if id is found", () => {
+    const event = {
+      target: {
+        id: "car"
+      }
+    };
+    instance.handleSearch(event);
+    expect(instance.state.facilities.length).toEqual(2);
+    expect(instance.state.facilities.includes("car")).toEqual(false);
+  });
+});

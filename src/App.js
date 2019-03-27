@@ -6,7 +6,8 @@ import "./App.css";
 class App extends Component {
   state = {
     hotels: [],
-    facilities: []
+    facilities: [],
+    starsOrder: "asc"
   };
   componentDidMount() {
     this.setState({ hotels });
