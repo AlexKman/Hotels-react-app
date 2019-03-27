@@ -1,6 +1,5 @@
 import { mount } from "enzyme";
 import React from "react";
-import App from "./App";
-import hotels from "./data/hotels.json";
+import Checkbox from "./checkbox";
 
 describe("checkbox", () => {});
