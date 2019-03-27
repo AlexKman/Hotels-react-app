@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Hilton",
+    "starRating": 5,
+    "facilities": ["car park", "pool"],
+    "id": 1
+  },
+  {
+    "name": "Landmark",
+    "starRating": 3,
+    "facilities": ["car park", "gym"],
+    "id": 2
+  },
+  {
+    "name": "Billay",
+    "starRating": 3,
+    "facilities": ["pool"],
+    "id": 3
+  },
+  {
+    "name": "The Standard",
+    "starRating": 10,
+    "facilities": ["pool", "car park", "snooker"],
+    "id": 4
+  },
+  {
+    "name": "Tranquil Sanctuary",
+    "starRating": 1,
+    "facilities": ["bar", "gym"],
+    "id": 5
+  },
+  {
+    "name": "Vacation hotel",
+    "starRating": 7,
+    "facilities": ["snooker"],
+    "id": 6
+  }
+]
