@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import hotels from "./data/hotels.json";
-import Checkbox from "./components/checkbox.jsx";
+import Checkbox from "./components/Checkbox.jsx";
 import "./App.css";
 
 class App extends Component {

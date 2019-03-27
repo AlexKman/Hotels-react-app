@@ -1,3 +1,14 @@
 .App {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 150vh;
+  background-color: #074b4c;
+}
+.hotelsList {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  font-family: "Pontano sana", sans-serif;
+  font-size: 1.3em;
 }
