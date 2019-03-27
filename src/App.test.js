@@ -63,3 +63,87 @@ describe("handleSearch", () => {
     expect(instance.state.facilities.includes("car")).toEqual(false);
   });
 });
+describe("handleStarsChange", () => {
+  it("changes the starsOrder state", () => {
+    const instance = component.instance();
+    const event = {
+      target: {
+        value: "asc"
+      }
+    };
+    instance.setState({ starsOrder: "desc" });
+    instance.handleStarsChange(event);
+    expect(instance.state.starsOrder).toEqual("asc");
+  });
+});
+describe("sortHotelInStarsOrder", () => {
+  let instance;
+  beforeEach(() => {
+    instance = component.instance();
+  });
+  it("sorts the hotel in the ascending order of stars when starsOrder is asc", () => {
+    const hotels = [
+      {
+        name: "Landmark",
+        starRating: 3,
+        facilities: ["car park", "gym"],
+        id: 2
+      },
+      {
+        name: "Billay",
+        starRating: 1,
+        facilities: ["pool"],
+        id: 3
+      }
+    ];
+    instance.setState({ hotels });
+    const hotelsSortedAscending = [
+      {
+        name: "Billay",
+        starRating: 1,
+        facilities: ["pool"],
+        id: 3
+      },
+      {
+        name: "Landmark",
+        starRating: 3,
+        facilities: ["car park", "gym"],
+        id: 2
+      }
+    ];
+    expect(instance.sortHotelInStarsOrder()).toEqual(hotelsSortedAscending);
+  });
+  it("sorts the hotel in the descending order of stars when starsOrder is desc", () => {
+    const hotels = [
+      {
+        name: "Billay",
+        starRating: 1,
+        facilities: ["pool"],
+        id: 3
+      },
+      {
+        name: "Landmark",
+        starRating: 3,
+        facilities: ["car park", "gym"],
+        id: 2
+      }
+    ];
+    instance.setState({ hotels });
+    instance.setState({ starsOrder: "desc" });
+    const hotelsSortedDescending = [
+      {
+        name: "Landmark",
+        starRating: 3,
+        facilities: ["car park", "gym"],
+        id: 2
+      },
+      {
+        name: "Billay",
+        starRating: 1,
+        facilities: ["pool"],
+        id: 3
+      }
+    ];
+    expect(instance.sortHotelInStarsOrder()).toEqual(hotelsSortedDescending);
+  });
+});
