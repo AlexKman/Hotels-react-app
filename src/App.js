@@ -43,7 +43,7 @@ class App extends Component {
         Filtering:{" "}
         {this.state.facilities.join(", ") || "showing all facilities!"}
         <ul className="hotelslist">
-          {this.sortHotelInStarsOrder()
+          {this.sortHotelsInStarOrder()
             .filter(hotel =>
               this.checkForFacilities(hotel.facilities, this.state.facilities)
             )
@@ -67,7 +67,7 @@ class App extends Component {
   getHotelFacilities = hotel => {
     return hotel.facilities.join(", ") || "no facilities";
   };
-  sortHotelInStarsOrder = () => {
+  sortHotelsInStarOrder = () => {
     const hotels = this.state.hotels;
     hotels.sort((hotel1, hotel2) => {
       return this.state.starsOrder === "asc"

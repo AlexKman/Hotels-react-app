@@ -76,7 +76,7 @@ describe("handleStarsChange", () => {
     expect(instance.state.starsOrder).toEqual("asc");
   });
 });
-describe("sortHotelInStarsOrder", () => {
+describe("sortHotelsInStarOrder", () => {
   let instance;
   beforeEach(() => {
     instance = component.instance();
@@ -111,7 +111,7 @@ describe("sortHotelInStarsOrder", () => {
         id: 2
       }
     ];
-    expect(instance.sortHotelInStarsOrder()).toEqual(hotelsSortedAscending);
+    expect(instance.sortHotelsInStarOrder()).toEqual(hotelsSortedAscending);
   });
   it("sorts the hotel in the descending order of stars when starsOrder is desc", () => {
     const hotels = [
@@ -144,6 +144,6 @@ describe("sortHotelInStarsOrder", () => {
         id: 3
       }
     ];
-    expect(instance.sortHotelInStarsOrder()).toEqual(hotelsSortedDescending);
+    expect(instance.sortHotelsInStarOrder()).toEqual(hotelsSortedDescending);
   });
 });
