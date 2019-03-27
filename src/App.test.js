@@ -24,126 +24,173 @@ describe("checkbox", () => {
       expect(component.find("Checkbox")).toHaveLength(3);
     });
   });
-});
-describe("Behaviour", () => {
-  describe("componentDidMount", () => {
-    it("loads hotels to state on mounting", () => {
-      const instance = component.instance();
-      instance.componentDidMount();
-      expect(instance.state.hotels).toEqual(hotels);
+  describe("Behaviour", () => {
+    describe("componentDidMount", () => {
+      it("loads hotels to state on mounting", () => {
+        const instance = component.instance();
+        instance.componentDidMount();
+        expect(instance.state.hotels).toEqual(hotels);
+      });
     });
-  });
-});
-describe("handleSearch", () => {
-  let instance;
-  let facilities;
-  beforeEach(() => {
-    instance = component.instance();
-    facilities = ["car", "pool", "gym"];
-    instance.setState({ facilities });
-  });
-  it("adds to facilities array if id is not found", () => {
-    const event = {
-      target: {
-        id: "big"
-      }
-    };
-    instance.handleSearch(event);
-    expect(instance.state.facilities.length).toEqual(4);
-    expect(instance.state.facilities.includes("big")).toEqual(true);
-  });
-  it("removes from facilities array if id is found", () => {
-    const event = {
-      target: {
-        id: "car"
-      }
-    };
-    instance.handleSearch(event);
-    expect(instance.state.facilities.length).toEqual(2);
-    expect(instance.state.facilities.includes("car")).toEqual(false);
-  });
-});
-describe("handleStarsChange", () => {
-  it("changes the starsOrder state", () => {
-    const instance = component.instance();
-    const event = {
-      target: {
-        value: "asc"
-      }
-    };
-    instance.setState({ starsOrder: "desc" });
-    instance.handleStarsChange(event);
-    expect(instance.state.starsOrder).toEqual("asc");
-  });
-});
-describe("sortHotelsInStarOrder", () => {
-  let instance;
-  beforeEach(() => {
-    instance = component.instance();
-  });
-  it("sorts the hotel in the ascending order of stars when starsOrder is asc", () => {
-    const hotels = [
-      {
-        name: "Landmark",
-        starRating: 3,
-        facilities: ["car park", "gym"],
-        id: 2
-      },
-      {
-        name: "Billay",
-        starRating: 1,
-        facilities: ["pool"],
-        id: 3
-      }
-    ];
-    instance.setState({ hotels });
-    const hotelsSortedAscending = [
-      {
-        name: "Billay",
-        starRating: 1,
-        facilities: ["pool"],
-        id: 3
-      },
-      {
-        name: "Landmark",
-        starRating: 3,
-        facilities: ["car park", "gym"],
-        id: 2
-      }
-    ];
-    expect(instance.sortHotelsInStarOrder()).toEqual(hotelsSortedAscending);
-  });
-  it("sorts the hotel in the descending order of stars when starsOrder is desc", () => {
-    const hotels = [
-      {
-        name: "Billay",
-        starRating: 1,
-        facilities: ["pool"],
-        id: 3
-      },
-      {
-        name: "Landmark",
-        starRating: 3,
-        facilities: ["car park", "gym"],
-        id: 2
-      }
-    ];
-    instance.setState({ hotels });
-    instance.setState({ starsOrder: "desc" });
-    const hotelsSortedDescending = [
-      {
-        name: "Landmark",
-        starRating: 3,
-        facilities: ["car park", "gym"],
-        id: 2
-      },
-      {
-        name: "Billay",
-        starRating: 1,
-        facilities: ["pool"],
-        id: 3
-      }
-    ];
-    expect(instance.sortHotelsInStarOrder()).toEqual(hotelsSortedDescending);
+    describe("handleSearch", () => {
+      let instance;
+      let facilities;
+      beforeEach(() => {
+        instance = component.instance();
+        facilities = ["car", "pool", "gym"];
+        instance.setState({ facilities });
+      });
+      it("adds to facilities array if id is not found", () => {
+        const event = {
+          target: {
+            id: "big"
+          }
+        };
+        instance.handleSearch(event);
+        expect(instance.state.facilities.length).toEqual(4);
+        expect(instance.state.facilities.includes("big")).toEqual(true);
+      });
+      it("removes from facilities array if id is found", () => {
+        const event = {
+          target: {
+            id: "car"
+          }
+        };
+        instance.handleSearch(event);
+        expect(instance.state.facilities.length).toEqual(2);
+        expect(instance.state.facilities.includes("car")).toEqual(false);
+      });
+    });
+    describe("handleStarsChange", () => {
+      it("changes the starsOrder state", () => {
+        const instance = component.instance();
+        const event = {
+          target: {
+            value: "asc"
+          }
+        };
+        instance.setState({ starsOrder: "desc" });
+        instance.handleStarsChange(event);
+        expect(instance.state.starsOrder).toEqual("asc");
+      });
+    });
+    describe("sortHotelInStarsOrder", () => {
+      let instance;
+      beforeEach(() => {
+        instance = component.instance();
+      });
+      it("sorts the hotel in the ascending order of stars when starsOrder is asc", () => {
+        const hotels = [
+          {
+            name: "Landmark",
+            starRating: 3,
+            facilities: ["car park", "gym"],
+            id: 2
+          },
+          {
+            name: "Billay",
+            starRating: 1,
+            facilities: ["pool"],
+            id: 3
+          }
+        ];
+        instance.setState({ hotels });
+        const hotelsSortedAscending = [
+          {
+            name: "Billay",
+            starRating: 1,
+            facilities: ["pool"],
+            id: 3
+          },
+          {
+            name: "Landmark",
+            starRating: 3,
+            facilities: ["car park", "gym"],
+            id: 2
+          }
+        ];
+        expect(instance.sortHotelInStarsOrder()).toEqual(hotelsSortedAscending);
+      });
+      it("sorts the hotel in the descending order of stars when starsOrder is desc", () => {
+        const hotels = [
+          {
+            name: "Billay",
+            starRating: 1,
+            facilities: ["pool"],
+            id: 3
+          },
+          {
+            name: "Landmark",
+            starRating: 3,
+            facilities: ["car park", "gym"],
+            id: 2
+          }
+        ];
+        instance.setState({ hotels });
+        instance.setState({ starsOrder: "desc" });
+        const hotelsSortedDescending = [
+          {
+            name: "Landmark",
+            starRating: 3,
+            facilities: ["car park", "gym"],
+            id: 2
+          },
+          {
+            name: "Billay",
+            starRating: 1,
+            facilities: ["pool"],
+            id: 3
+          }
+        ];
+        expect(instance.sortHotelInStarsOrder()).toEqual(
+          hotelsSortedDescending
+        );
+      });
+    });
+
+    describe("checkForFacilities", () => {
+      it("returns true when the specified facilities are a subset of available facilities at hotel", () => {
+        const hotelFacilities = ["car", "pool", "gym"];
+        const requiredFacilities = ["car"];
+        expect(
+          component
+            .instance()
+            .checkForFacilities(hotelFacilities, requiredFacilities)
+        ).toEqual(true);
+      });
+      it("returns true when the specified facilities are a subset of available facilities at hotel", () => {
+        const hotelFacilities = ["car", "pool"];
+        const requiredFacilities = ["car", "gym"];
+        expect(
+          component
+            .instance()
+            .checkForFacilities(hotelFacilities, requiredFacilities)
+        ).toEqual(false);
+      });
+    });
+    describe("getHotelFacilities", () => {
+      it('returns "no faclitieis" when there are no facilities for hotel', () => {
+        const hotel = {
+          name: "Landmark",
+          starRating: 3,
+          facilities: [],
+          id: 2
+        };
+        expect(component.instance().getHotelFacilities(hotel)).toEqual(
+          "no facilities"
+        );
+      });
+      it("returns a string of facilities when there are facilities for hotel", () => {
+        const hotel = {
+          name: "Landmark",
+          starRating: 3,
+          facilities: ["car, gym"],
+          id: 2
+        };
+        expect(component.instance().getHotelFacilities(hotel)).toContain(
+          "car, gym"
+        );
+      });
+    });
   });
 });
