@@ -5,14 +5,24 @@
   height: 150vh;
   background-color: #074b4c;
 }
-.hotelsList {
+
+#header {
+  font-size: 5vh;
+  font-family: La Belle Aurore;
+  margin-bottom: 10vh;
+}
+
+#hotel {
+  margin-bottom: 5vh;
+}
+#filteroptions {
+  display: flex;
+  flex-direction: column;
+}
+.hotelslist {
   display: inline-grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
   font-family: "Pontano sana", sans-serif;
   font-size: 1.3em;
-}
-#filteroptions {
-  display: flex;
-  flex-direction: column;
 }
