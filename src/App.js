@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import hotels from "./data/hotels.json";
-import Checkbox from "./components/Checkbox.jsx";
 import "./App.css";
+import Checkbox from "./components/Checkbox.jsx";
 
 class App extends Component {
   state = {
@@ -9,14 +9,23 @@ class App extends Component {
     facilities: [],
     starsOrder: "asc"
   };
+
   componentDidMount() {
     this.setState({ hotels });
   }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">Hotels-react-app</header>
-        <form id="filterOptions">
+        <header id="header">Hotels-ReactApp</header>
+        <header>Sort by star rating!</header>
+        <select onChange={this.handleStarsChange}>
+          <option value="asc">Asc</option>
+          <option value="desc">Desc</option>
+        </select>
+        <br />
+        <header>Add filters!</header>
+        <form id="filteroptions">
           <div>
             Car Park
             <Checkbox onClick={this.handleSearch} id="car park" />
@@ -30,6 +39,7 @@ class App extends Component {
             <Checkbox onClick={this.handleSearch} id="pool" />
           </div>
         </form>
+        <br />
         Filtering:{" "}
         {this.state.facilities.join(", ") || "showing all facilities!"}
         <ul className="hotelslist">
@@ -41,22 +51,21 @@ class App extends Component {
               <div id="hotel" key={hotel.id}>
                 <section>{hotel.name}</section>
                 <section>Star rating = {hotel.starRating}</section>
-                <section>Facilities = {hotel.facilities}</section>
+                <section>Facilities </section>
               </div>
             ))}
         </ul>
       </div>
     );
   }
-  handleSearch = e => {
-    if (!this.state.facilities.includes(e.target.id)) {
-      this.setState({ facilities: [...this.state.facilities, e.target.id] });
-    } else {
-      const facilitiesCopy = [...this.state.facilities];
-      const index = facilitiesCopy.indexOf(e.target.id);
-      facilitiesCopy.splice(index, 1);
-      this.setState({ facilities: facilitiesCopy });
+  checkForFacilities = (itemFacilities, specifiedFacilities) => {
+    for (let i = 0; i < specifiedFacilities.length; i += 1) {
+      if (!itemFacilities.includes(specifiedFacilities[i])) return false;
     }
+    return true;
+  };
+  getHotelFacilities = hotel => {
+    return hotel.facilities.join(", ") || "no facilities";
   };
   sortHotelInStarsOrder = () => {
     const hotels = this.state.hotels;
@@ -67,14 +76,19 @@ class App extends Component {
     });
     return hotels;
   };
-  checkForFacilities = (itemFacilities, specifiedFacilities) => {
-    for (let i = 0; i < specifiedFacilities.length; i += 1) {
-      if (!itemFacilities.includes(specifiedFacilities[i])) return false;
-    }
-    return true;
+  handleStarsChange = e => {
+    this.setState({ starsOrder: e.target.value });
   };
-  getHotelFacilities = hotel => {
-    return hotel.facilities.join(", ") || "no facilities";
+
+  handleSearch = e => {
+    if (!this.state.facilities.includes(e.target.id)) {
+      this.setState({ facilities: [...this.state.facilities, e.target.id] });
+    } else {
+      const facilitiesCopy = [...this.state.facilities];
+      const index = facilitiesCopy.indexOf(e.target.id);
+      facilitiesCopy.splice(index, 1);
+      this.setState({ facilities: facilitiesCopy });
+    }
   };
 }
 
