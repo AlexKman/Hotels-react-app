@@ -15,11 +15,11 @@
 #hotel {
   margin-bottom: 5vh;
 }
-#filteroptions {
+#filterOptions {
   display: flex;
   flex-direction: column;
 }
-.hotelslist {
+.hotelsList {
   display: inline-grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;

@@ -26,7 +26,7 @@ class App extends Component {
         </select>
         <br />
         <header>Add filters!</header>
-        <form id="filteroptions">
+        <form id="filterOptions">
           <div>
             Car Park
             <Checkbox onClick={this.handleSearch} id="car park" />
@@ -43,7 +43,7 @@ class App extends Component {
         <br />
         Filtering:{" "}
         {this.state.facilities.join(", ") || "showing all facilities!"}
-        <ul className="hotelslist">
+        <ul className="hotelsList">
           {this.sortHotelInStarsOrder()
             .filter(hotel =>
               this.checkForFacilities(hotel.facilities, this.state.facilities)
