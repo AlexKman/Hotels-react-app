@@ -5,7 +5,8 @@ import "./App.css";
 
 class App extends Component {
   state = {
-    hotels: []
+    hotels: [],
+    facilities: []
   };
   componentDidMount() {
     this.setState({ hotels });
@@ -28,14 +29,20 @@ class App extends Component {
             <Checkbox onClick={this.handleSearch} id="pool" />
           </div>
         </form>
-        <ul className="hotelsList">
-          {this.state.hotels.map(hotel => (
-            <div id="hotel" key={hotel.id}>
-              <section>{hotel.name}</section>
-              <section>Star rating = {hotel.starRating}</section>
-              <section>Facilities =</section>
-            </div>
-          ))}
+        Filtering:{" "}
+        {this.state.facilities.join(", ") || "showing all facilities!"}
+        <ul className="hotelslist">
+          {this.sortHotelInStarsOrder()
+            .filter(hotel =>
+              this.checkForFacilities(hotel.facilities, this.state.facilities)
+            )
+            .map(hotel => (
+              <div id="hotel" key={hotel.id}>
+                <section>{hotel.name}</section>
+                <section>Star rating = {hotel.starRating}</section>
+                <section>Facilities = {hotel.facilities}</section>
+              </div>
+            ))}
         </ul>
       </div>
     );
@@ -49,6 +56,24 @@ class App extends Component {
       facilitiesCopy.splice(index, 1);
       this.setState({ facilities: facilitiesCopy });
     }
+  };
+  sortHotelInStarsOrder = () => {
+    const hotels = this.state.hotels;
+    hotels.sort((hotel1, hotel2) => {
+      return this.state.starsOrder === "asc"
+        ? hotel1.starRating - hotel2.starRating
+        : hotel2.starRating - hotel1.starRating;
+    });
+    return hotels;
+  };
+  checkForFacilities = (itemFacilities, specifiedFacilities) => {
+    for (let i = 0; i < specifiedFacilities.length; i += 1) {
+      if (!itemFacilities.includes(specifiedFacilities[i])) return false;
+    }
+    return true;
+  };
+  getHotelFacilities = hotel => {
+    return hotel.facilities.join(", ") || "no facilities";
   };
 }
 
